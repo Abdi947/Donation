@@ -1,80 +1,69 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Donate to Abdi ❤️</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Support Abdi ❤️</title>
   <style>
-    :root{--bg:#f7f8fa;--card:#ffffff;--accent:#0070ba;--accent-hover:#005ea6;--text:#222;}
-    body{margin:0;font-family:Inter, system-ui, -apple-system, "Segoe UI", Roboto, Arial; background:var(--bg); color:var(--text);}
-    .wrap{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:40px;}
-    .card{width:100%;max-width:720px;background:var(--card);border-radius:14px;box-shadow:0 10px 30px rgba(20,20,30,.06);padding:36px;}
-    h1{margin:0 0 12px;font-size:28px}
-    p.lead{margin:0 0 18px;color:#444;line-height:1.45}
-    .donate-row{display:flex;gap:12px;flex-wrap:wrap;margin-top:18px}
-    .btn{display:inline-flex;align-items:center;gap:10px;padding:12px 20px;border-radius:10px;text-decoration:none;font-weight:600;border:0;cursor:pointer}
-    .btn-paypal{background:var(--accent);color:#fff}
-    .btn-paypal:hover{background:var(--accent-hover)}
-    .btn-mail{background:#eee;color:#111}
-    small.hint{display:block;margin-top:14px;color:#666}
-    footer{margin-top:22px;color:#666;font-size:13px}
-    @media(max-width:480px){.card{padding:20px}}
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      background-color: #f9f9f9;
+      padding: 50px;
+      color: #222;
+    }
+    h1 {
+      font-size: 32px;
+      margin-bottom: 20px;
+    }
+    p {
+      font-size: 18px;
+      max-width: 600px;
+      margin: 0 auto 30px;
+    }
+    button {
+      padding: 15px 30px;
+      font-size: 18px;
+      border: none;
+      border-radius: 10px;
+      background-color: #0070ba;
+      color: #fff;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    button:hover {
+      background-color: #005ea6;
+    }
+    #email {
+      margin-top: 20px;
+      font-weight: bold;
+      color: #222;
+      font-size: 16px;
+    }
   </style>
 </head>
 <body>
-  <div class="wrap">
-    <div class="card" role="main" aria-labelledby="title">
-      <h1 id="title">Support Abdi ❤️</h1>
 
-      <p class="lead">
-        Hi — I’m Abdi. I work hard taking care of my family and creating projects. If you'd like to support me,
-        any amount helps and means a lot. Thank you for your kindness.
-      </p>
+  <h1>❤️ Support Abdi</h1>
+  <p>
+    Hi! My name is Abdi. I work hard taking care of my family and creating projects.  
+    If you’d like to support me, click the button below to open your email and send a donation!
+  </p>
 
-      <!-- ===========================
-           Option A — Quick method using PayPal email
-           (Replace business= with your PayPal email if needed)
-           =========================== -->
-      <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank" style="display:inline-block">
-        <!-- Standard PayPal donation form parameters -->
-        <input type="hidden" name="cmd" value="_donations">
-        <input type="hidden" name="business" value="omarabdirashid0008@gmail.com">
-        <input type="hidden" name="currency_code" value="USD">
-        <!-- Optional: item name that shows on PayPal -->
-        <input type="hidden" name="item_name" value="Support Abdi">
-        <button type="submit" class="btn btn-paypal" aria-label="Donate with PayPal">
-          ❤️ Donate with PayPal
-        </button>
-      </form>
+  <button onclick="donateEmail()">Donate via Email</button>
 
-      <!-- ===========================
-           Option B — Recommended: hosted_button_id (if you create a PayPal Donate button)
-           Uncomment and use instead of the form above if PayPal gives you a hosted_button_id
-           =========================== -->
-      <!--
-      <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank" style="display:inline-block">
-        <input type="hidden" name="cmd" value="_s-xclick">
-        <input type="hidden" name="hosted_button_id" value="YOUR_HOSTED_BUTTON_ID_HERE">
-        <button type="submit" class="btn btn-paypal">❤️ Donate with PayPal</button>
-      </form>
-      -->
+  <p id="email"></p>
 
-      <!-- Email fallback -->
-      <div class="donate-row">
-        <a class="btn btn-mail" href="mailto:omarabdirashid0008@gmail.com?subject=Donation&body=I%20want%20to%20donate" target="_blank">
-          ✉️ Donate by Email
-        </a>
-      </div>
+  <script>
+    function donateEmail() {
+      // Show email on the page
+      document.getElementById("email").innerText = "Email: omarabdirashid0008@gmail.com";
+      // Open email client with pre-filled subject and body
+      window.location.href = "mailto:omarabdirashid0008@gmail.com?subject=Donation&body=I%20want%20to%20donate";
+      // Show thank-you alert
+      alert("Thank you for wanting to support! Your email client should open now.");
+    }
+  </script>
 
-      <small class="hint">
-        Tip: If the PayPal page shows an error, create a PayPal "Donate" button inside your PayPal account and
-        replace the email form above with the hosted_button_id version (recommended).
-      </small>
-
-      <footer>
-        <div>Privacy: No payment info is stored on this site. Payments are processed by PayPal.</div>
-      </footer>
-    </div>
-  </div>
 </body>
 </html>
